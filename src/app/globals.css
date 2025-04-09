@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background-image: url('../assets/img.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+label,
+p,
+span {
+  color: white;
+}
+tr {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+.font {
+  font-family: "Times New Roman", Times, serif;
+}
+
+td,
+th {
+  font-size: 14px;
+  border-color: rgb(194, 194, 194);
+  padding: 0 10px;
+}
+
+input,
+select {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  padding: 5px 10px;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+option {
+  color: black;
+}
+
+input:active,
+input:focus,
+input:-internal-autofill-selected {
+  outline: none;
+  background-color: transparent !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.glass {
+  background: rgba(3, 3, 3, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.ReactModal__Overlay {
+  background-color: #000000a6 !important;
+}
+
+.ReactModal__Content {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #79797957;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #0066ff;
+  -webkit-box-shadow: 0 0 1px #0066ff;
+}
