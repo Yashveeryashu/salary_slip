@@ -1,5 +1,7 @@
 import { oneToNineteen, twoDigit, oneDigit, scales } from "@/constants";
 import * as React from "react";
+import LOGO from "@/assets/LOGO.png"
+import Image from "next/image";
 
 export class ComponentToPrint extends React.PureComponent {
   numberToWords(number) {
@@ -89,7 +91,7 @@ export class ComponentToPrint extends React.PureComponent {
         {/* Header */}
         <div className="flex items-start justify-between w-full px-4 pt-6">
           <div className="w-[10%]">
-            <img src="/logo.png" alt="Logo" className="w-full h-auto object-contain" />
+            <Image src={LOGO} alt="Logo" className="w-full h-auto object-contain" />
           </div>
 
           <div className="flex-1 text-center">

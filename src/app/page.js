@@ -15,6 +15,7 @@ import {
   nonMandatoryField,
 } from "@/constants";
 
+
 export default function Home() {
   const componentRef = useRef(null);
   const onBeforeGetContentResolve = useRef(null);
