@@ -95,21 +95,16 @@ export class ComponentToPrint extends React.PureComponent {
           </div>
 
           <div className="flex-1 text-center">
-           <div className="mb-3">
+           <div className="mb-3"   style={{ marginLeft: '-70px' }}>
               <p className="text-black font-bold text-sm">GSTIN - 06BFHPG0629E1ZW</p>
            </div>
-           <div className="mb-3">
+           <div className="mb-3"  style={{ marginLeft: '-90px' }}>
             <p className="text-black font-bold text-2xl">Atomic Ads</p>
-            <p  className="text-black font-bold text-xs">Flat no 882, Sector 8,</p>
-            <p  className="text-black font-bold text-xs">Pin Code : 121006 Faridabad</p>
+            <p  className="text-black font-bold text-xs">House No. 882, Sector 8,Faridabad</p>
+            <p  className="text-black font-bold text-xs">Pin Code : 121006</p>
            </div>
           </div>
-{/* 
-          <div className="text-right text-sm text-black mb-4">
-            <p>Flat no 882, Sector 8,</p>
-            <p>Pin Code : 121006</p>
-            <p>Faridabad</p>
-          </div> */}
+
         </div>
 
         {/* Payslip Title */}
@@ -135,7 +130,8 @@ export class ComponentToPrint extends React.PureComponent {
             <tbody>
               <tr><td className="border-b">Employee Id:</td><td className="border-l border-b">{userInfo.employeeNo}</td></tr>
               <tr><td className="border-b">Gender:</td><td className="border-l border-b">{userInfo.gender}</td></tr>
-              <tr><td className="border-b">Mode of Payment Bank Name:</td><td className="border-l border-b">{userInfo.modeofpayment}</td></tr>
+              <tr><td className="border-b"> Bank Name:</td><td className="border-l border-b">{userInfo.modeofpayment}</td></tr>
+              <tr><td className="border-b"> Mode Of Payment:</td><td className="border-l border-b">{userInfo.client}</td></tr>
             </tbody>
           </table>
         </div>

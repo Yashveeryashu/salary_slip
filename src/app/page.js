@@ -408,7 +408,7 @@ export default function Home() {
             </div>
 
             <div className="flex gap-2 items-center justify-between">
-              <label>Client:</label>
+              <label>Mode Of Payment:</label>
               <input
                 autoComplete="off"
                 className="w-60"
@@ -421,7 +421,7 @@ export default function Home() {
             </div>
 
             <div className="flex gap-2 items-center justify-between">
-              <label>MOP :</label>
+              <label>Bank Name :</label>
               <input
                 autoComplete="off"
                 className="w-60"
