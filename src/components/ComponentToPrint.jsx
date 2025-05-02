@@ -1,6 +1,6 @@
 import { oneToNineteen, twoDigit, oneDigit, scales } from "@/constants";
 import * as React from "react";
-import LOGO from "@/assets/LOGO.png"
+import LOGO from "@/assets/LOGO.png";
 import Image from "next/image";
 
 export class ComponentToPrint extends React.PureComponent {
@@ -30,9 +30,12 @@ export class ComponentToPrint extends React.PureComponent {
         if (remainder < 10) {
           numInWords += (numInWords !== "" ? " " : "") + oneDigit[remainder];
         } else if (remainder < 20) {
-          numInWords += (numInWords !== "" ? " " : "") + oneToNineteen[remainder];
+          numInWords +=
+            (numInWords !== "" ? " " : "") + oneToNineteen[remainder];
         } else {
-          numInWords += (numInWords !== "" ? " " : "") + twoDigit[Math.floor(remainder / 10)];
+          numInWords +=
+            (numInWords !== "" ? " " : "") +
+            twoDigit[Math.floor(remainder / 10)];
           if (remainder % 10 !== 0) {
             numInWords += " " + oneDigit[remainder % 10];
           }
@@ -42,7 +45,10 @@ export class ComponentToPrint extends React.PureComponent {
           numInWords += " " + scales[scaleIndex];
         }
 
-        wholeNumberWords = wholeNumberWords !== "" ? numInWords + " " + wholeNumberWords : numInWords;
+        wholeNumberWords =
+          wholeNumberWords !== ""
+            ? numInWords + " " + wholeNumberWords
+            : numInWords;
       }
 
       wholeNumber = Math.floor(wholeNumber / 1000);
@@ -62,7 +68,9 @@ export class ComponentToPrint extends React.PureComponent {
       }
     }
 
-    return `Rupees ${wholeNumberWords}${decimalNumberWords ? ` and ${decimalNumberWords} Paise` : ""}`;
+    return `Rupees ${wholeNumberWords}${
+      decimalNumberWords ? ` and ${decimalNumberWords} Paise` : ""
+    }`;
   }
 
   render() {
@@ -78,7 +86,7 @@ export class ComponentToPrint extends React.PureComponent {
       <div className="relativeCSS bg-white w-full">
         <style type="text/css" media="print">
           {`
-            @page { size: A4; }
+            @page { size: A4 landscape;  margin: 0; }
 
             .force-black {
               color: red !important;
@@ -91,20 +99,27 @@ export class ComponentToPrint extends React.PureComponent {
         {/* Header */}
         <div className="flex items-start justify-between w-full px-4 pt-6">
           <div className="w-[10%]">
-            <Image src={LOGO} alt="Logo" className="w-full h-auto object-contain" />
+            <Image
+              src={LOGO}
+              alt="Logo"
+              className="w-full h-auto object-contain"
+            />
           </div>
 
           <div className="flex-1 text-center">
-           <div className="mb-3"   style={{ marginLeft: '-70px' }}>
-              <p className="text-black font-bold text-sm">GSTIN - 06BFHPG0629E1ZW</p>
-           </div>
-           <div className="mb-3"  style={{ marginLeft: '-90px' }}>
-            <p className="text-black font-bold text-2xl">Atomic Ads</p>
-            <p  className="text-black font-bold text-xs">House No. 882, Sector 8,Faridabad</p>
-            <p  className="text-black font-bold text-xs">Pin Code : 121006</p>
-           </div>
+            <div className="mb-3" style={{ marginLeft: "-70px" }}>
+              <p className="text-black font-bold text-sm">
+                GSTIN - 06BFHPG0629E1ZW
+              </p>
+            </div>
+            <div className="mb-3" style={{ marginLeft: "-90px" }}>
+              <p className="text-black font-bold text-2xl">Atomic Ads</p>
+              <p className="text-black font-bold text-xs">
+                House No. 882, Sector 8,Faridabad
+              </p>
+              <p className="text-black font-bold text-xs">Pin Code : 121006</p>
+            </div>
           </div>
-
         </div>
 
         {/* Payslip Title */}
@@ -116,22 +131,57 @@ export class ComponentToPrint extends React.PureComponent {
         <div className="grid grid-cols-2 m-4 mt-2 font">
           <table className="border border-black">
             <tbody>
-              <tr><td className="border-b">Name:</td><td className="border-l border-b">{userInfo.name}</td></tr>
-              <tr><td className="border-b">Joining Date:</td><td className="border-l border-b">{userInfo.joiningDate}</td></tr>
-              <tr><td className="border-b">Designation:</td><td className="border-l border-b">{userInfo.designation}</td></tr>
-              <tr><td className="border-b">Location:</td><td className="border-l border-b">{userInfo.location}</td></tr>
-              <tr><td className="border-b">Department:</td><td className="border-l border-b">{userInfo.department}</td></tr>
-              <tr><td className="border-b">Effective Work Days:</td><td className="border-l border-b">{userInfo.workingDays} days</td></tr>
-              <tr><td>Working Location:</td><td className="border-l">{userInfo.workingLocation}</td></tr>
+              <tr>
+                <td className="border-b">Name:</td>
+                <td className="border-l border-b">{userInfo.name}</td>
+              </tr>
+              <tr>
+                <td className="border-b">Joining Date:</td>
+                <td className="border-l border-b">{userInfo.joiningDate}</td>
+              </tr>
+              <tr>
+                <td className="border-b">Designation:</td>
+                <td className="border-l border-b">{userInfo.designation}</td>
+              </tr>
+              <tr>
+                <td className="border-b">Location:</td>
+                <td className="border-l border-b">{userInfo.location}</td>
+              </tr>
+              <tr>
+                <td className="border-b">Department:</td>
+                <td className="border-l border-b">{userInfo.department}</td>
+              </tr>
+              <tr>
+                <td className="border-b">Effective Work Days:</td>
+                <td className="border-l border-b">
+                  {userInfo.workingDays} days
+                </td>
+              </tr>
+              <tr>
+                <td>Working Location:</td>
+                <td className="border-l">{userInfo.workingLocation}</td>
+              </tr>
             </tbody>
           </table>
 
           <table className="border border-black border-l-0">
             <tbody>
-              <tr><td className="border-b">Employee Id:</td><td className="border-l border-b">{userInfo.employeeNo}</td></tr>
-              <tr><td className="border-b">Gender:</td><td className="border-l border-b">{userInfo.gender}</td></tr>
-              <tr><td className="border-b"> Bank Name:</td><td className="border-l border-b">{userInfo.modeofpayment}</td></tr>
-              <tr><td className="border-b"> Mode Of Payment:</td><td className="border-l border-b">{userInfo.client}</td></tr>
+              <tr>
+                <td className="border-b">Employee Id:</td>
+                <td className="border-l border-b">{userInfo.employeeNo}</td>
+              </tr>
+              <tr>
+                <td className="border-b">Gender:</td>
+                <td className="border-l border-b">{userInfo.gender}</td>
+              </tr>
+              <tr>
+                <td className="border-b"> Bank Name:</td>
+                <td className="border-l border-b">{userInfo.modeofpayment}</td>
+              </tr>
+              <tr>
+                <td className="border-b"> Mode Of Payment:</td>
+                <td className="border-l border-b">{userInfo.client}</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -140,34 +190,90 @@ export class ComponentToPrint extends React.PureComponent {
         <div className="grid grid-cols-2 m-4 mt-2 font">
           <table className="border border-black">
             <thead className="border border-black border-x-0">
-              <tr><th>Earnings</th><th className="border-l">Actual Value</th></tr>
+              <tr>
+                <th>Earnings</th>
+                <th className="border-l">Actual Value</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td className="border-b">BASIC:</td><td className="text-right border-b border-l">{userInfo.basic}</td></tr>
-              <tr><td>HRA:</td><td className="text-right border-l">{userInfo.HRA}</td></tr>
-              <tr><td>DA:</td><td className="text-right border-l">{userInfo.allowance}</td></tr>
-              <tr><td className="border-b">Medical:</td><td className="text-right border-b border-l">{userInfo.medical}</td></tr>
-              {losOfPay && (<tr><td className="border-b">Loss of pay:</td><td className="text-right border-b border-l">- {parseFloat(losOfPay).toFixed(2)}</td></tr>)}
-              <tr><td>INCENTIVES:</td><td className="text-right border-l">{incentive ? parseFloat(incentive).toFixed(2) : "Nil"}</td></tr>
+              <tr>
+                <td className="border-b">BASIC:</td>
+                <td className="text-right border-b border-l">
+                  {userInfo.basic}
+                </td>
+              </tr>
+              <tr>
+                <td>HRA:</td>
+                <td className="text-right border-l">{userInfo.HRA}</td>
+              </tr>
+              <tr>
+                <td>DA:</td>
+                <td className="text-right border-l">{userInfo.allowance}</td>
+              </tr>
+              <tr>
+                <td className="border-b">Medical:</td>
+                <td className="text-right border-b border-l">
+                  {userInfo.medical}
+                </td>
+              </tr>
+              {losOfPay && (
+                <tr>
+                  <td className="border-b">Loss of pay:</td>
+                  <td className="text-right border-b border-l">
+                    - {parseFloat(losOfPay).toFixed(2)}
+                  </td>
+                </tr>
+              )}
+              <tr>
+                <td>INCENTIVES:</td>
+                <td className="text-right border-l">
+                  {incentive ? parseFloat(incentive).toFixed(2) : "Nil"}
+                </td>
+              </tr>
               <tr className="border-t border-black border-x-0">
-                <td>Total Earnings: INR.</td><td className="text-right border-l">{total}</td>
+                <td>Total Earnings: INR.</td>
+                <td className="text-right border-l">{total}</td>
               </tr>
             </tbody>
           </table>
 
           <table className="border border-black border-l-0">
             <thead className="border border-black border-x-0">
-              <tr><th>Deductions</th><th className="border-l">Actual Value</th></tr>
+              <tr>
+                <th>Deductions</th>
+                <th className="border-l">Actual Value</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td className="border-b">PF:</td><td className="text-right border-b border-l">Nil</td></tr>
-              <tr><td>ESI</td><td className="text-right border-l">Nil</td></tr>
-              <tr><td></td><td className="text-right border-l h-5"></td></tr>
-              <tr><td></td><td className="text-right border-l h-[22px]"></td></tr>
-              {losOfPay && (<tr><td></td><td className="text-right border-l h-[22px]"></td></tr>)}
-              <tr><td className="border-t">PROF TAX</td><td className="text-right border-l border-t">Nil</td></tr>
+              <tr>
+                <td className="border-b">PF:</td>
+                <td className="text-right border-b border-l">Nil</td>
+              </tr>
+              <tr>
+                <td>ESI</td>
+                <td className="text-right border-l">Nil</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td className="text-right border-l h-5"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td className="text-right border-l h-[22px]"></td>
+              </tr>
+              {losOfPay && (
+                <tr>
+                  <td></td>
+                  <td className="text-right border-l h-[22px]"></td>
+                </tr>
+              )}
+              <tr>
+                <td className="border-t">PROF TAX</td>
+                <td className="text-right border-l border-t">Nil</td>
+              </tr>
               <tr className="border-t border-black border-x-0">
-                <td>Total Deductions :INR</td><td className="text-right border-l">Nil</td>
+                <td>Total Deductions :INR</td>
+                <td className="text-right border-l">Nil</td>
               </tr>
             </tbody>
           </table>
@@ -175,9 +281,12 @@ export class ComponentToPrint extends React.PureComponent {
 
         {/* Net Pay */}
         <p className="text-black ml-4 mt-6 font">
-          Net Pay for the month: <span className="text-black font-semibold">₹ {total}</span>
+          Net Pay for the month:{" "}
+          <span className="text-black font-semibold">₹ {total}</span>
         </p>
-        <p className="text-black ml-4 font">( {this.numberToWords(parseFloat(total))} only )</p>
+        <p className="text-black ml-4 font">
+          ( {this.numberToWords(parseFloat(total))} only )
+        </p>
 
         {/* Footer */}
         <div className="border-t-black mx-4 border-2" />

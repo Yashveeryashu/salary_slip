@@ -414,7 +414,7 @@ export default function Home() {
                 className="w-60"
                 name="client"
                 type="text"
-                placeholder="Enter client"
+                placeholder="Enter Mode"
                 value={nonMedFields.client}
                 onChange={handleChange}
               />
@@ -427,7 +427,7 @@ export default function Home() {
                 className="w-60"
                 name="modeofpayment"
                 type="text"
-                placeholder="Enter YOUR BANK NAME"
+                placeholder="Enter Bank Name"
                 value={nonMedFields.modeofpayment}
                 onChange={handleChange}
               />
